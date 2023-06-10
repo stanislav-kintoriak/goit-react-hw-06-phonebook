@@ -1,7 +1,12 @@
 import PropTypes from 'prop-types';
 import css from './ListItem.module.css';
+import { useDispatch } from 'react-redux';
+import { contactDelete } from 'redux/actions';
 
-export const ListItem = ({ giveContact:{ id, name, number }, giveDeleteContact }) => (
+export const ListItem = ({ giveContact: { id, name, number } }) => {
+  const dispatch = useDispatch();
+
+  return (
     <li>
       <div>
         <p>
@@ -10,7 +15,7 @@ export const ListItem = ({ giveContact:{ id, name, number }, giveDeleteContact }
         <button
           className={css.listItem__button}
           type="button"
-          onClick={() => giveDeleteContact(id)}
+          onClick={() => dispatch(contactDelete(id))}
           key={id}
         >
           Delete
@@ -18,15 +23,12 @@ export const ListItem = ({ giveContact:{ id, name, number }, giveDeleteContact }
       </div>
     </li>
   );
-;
+};
 
 ListItem.propTypes = {
-  giveDeleteContact: PropTypes.func.isRequired,
-  giveContact: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
+  giveContact: PropTypes.exact({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }).isRequired,
 };

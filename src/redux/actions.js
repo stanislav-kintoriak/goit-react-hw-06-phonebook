@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid';
 
-export const onFormSubmit = ({ name, number }) => {
+export const formSubmit = ({ name, number }) => {
   return {
-    type: 'data/onFormSubmit',
+    type: 'data/formSubmit',
     payload: {
       id: nanoid(),
       name,
@@ -13,7 +13,7 @@ export const onFormSubmit = ({ name, number }) => {
 
 export const contactDelete = id => {
   return {
-    type: 'date/contactDelete',
+    type: 'data/contactDelete',
     payload: id,
   };
 };
