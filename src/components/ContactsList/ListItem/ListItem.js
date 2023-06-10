@@ -3,7 +3,7 @@ import css from './ListItem.module.css';
 import { useDispatch } from 'react-redux';
 import { contactDelete } from 'redux/dataSlice';
 
-export const ListItem = ({ giveContact: { id, name, number } }) => {
+export const ListItem = ({ giveContact: { name, number,id } }) => {
   const dispatch = useDispatch();
 
   return (

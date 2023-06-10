@@ -7,8 +7,8 @@ export const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filterValue = useSelector(getFilter);
 
-  console.log(contacts);
-  console.log(filterValue);
+  // console.log(contacts);
+  // console.log(filterValue);
 
   const getFoundedContacts = () => {
     const filterInLowercase = filterValue.toLowerCase();
